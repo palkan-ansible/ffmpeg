@@ -1,0 +1,11 @@
+- name: clone latest fdk-aac
+  git: repo=git://github.com/mstorsjo/fdk-aac.git accept_hostkey=true dest={{ ffmpeg_source_dir }}/fdk-aac
+
+- name: compile fdk-aac
+  shell: 'cd {{ ffmpeg_source_dir }}/fdk-aac; {{ item }} creates={{ ffmpeg_build }}/lib/libfdk-aac.a'
+  with_items:
+    - autoreconf -fiv
+    - ./configure --prefix={{ ffmpeg_build }} --disable-shared
+    - make
+    - make install
+    - make distclean

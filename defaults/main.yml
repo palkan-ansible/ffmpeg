@@ -1,0 +1,6 @@
+ffmpeg_source_dir: "/usr/local/src"
+ffmpeg_build: "/usr/local/ffmpeg_build"
+ffmpeg_bin_dir: "/usr/local/bin"
+ffmpeg_env: 
+  PKG_CONFIG_PATH: "{{ ffmpeg_build }}/lib/pkgconfig"
+ffmpeg_flags: "--extra-cflags=\"-I{{ ffmpeg_build }}/include\" --extra-ldflags=\"-L{{ ffmpeg_build }}/lib\" --bindir=\"{{ ffmpeg_bin_dir}}\" --extra-libs=-ldl --enable-gpl --enable-libass --enable-libfdk-aac --enable-libmp3lame --enable-libopus --enable-libtheora --enable-libvorbis --enable-libvpx --enable-libx264 --enable-libspeex --enable-nonfree"

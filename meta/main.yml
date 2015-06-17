@@ -1,0 +1,15 @@
+---
+galaxy_info:
+  author: Vlad Dem
+  description: Install FFMPEG (with common libs) from source
+  license: MIT
+  min_ansible_version: 1.5
+  platforms:
+  - name: Ubuntu
+    versions:
+    - all
+  - name: Debian
+    versions:
+    - all
+  categories:
+  - system

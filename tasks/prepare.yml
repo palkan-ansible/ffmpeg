@@ -1,0 +1,28 @@
+- name: apt-get update
+  apt: update_cache=yes cache_valid_time=3600
+
+- name: install dependencies
+  action: apt pkg={{ item }} state=present
+  with_items:
+    - git-core
+    - autoconf 
+    - automake 
+    - build-essential 
+    - libass-dev 
+    - libgpac-dev
+    - libsdl1.2-dev 
+    - libtheora-dev 
+    - libtool 
+    - libva-dev 
+    - libvdpau-dev 
+    - libvorbis-dev 
+    - libx11-dev
+    - libxext-dev 
+    - libxfixes-dev 
+    - pkg-config 
+    - texi2html 
+    - zlib1g-dev
+    - libmp3lame-dev
+
+- name: make source folder
+  file: dest={{ ffmpeg_source_dir }}/ffmpeg_source state=directory
