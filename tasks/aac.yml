@@ -1,5 +1,5 @@
 - name: clone latest fdk-aac
-  git: repo=git://github.com/mstorsjo/fdk-aac.git accept_hostkey=true dest={{ ffmpeg_source_dir }}/fdk-aac
+  git: repo=git://github.com/mstorsjo/fdk-aac.git accept_hostkey=true dest={{ ffmpeg_source_dir }}/fdk-aac depth=1
 
 - name: compile fdk-aac
   shell: 'cd {{ ffmpeg_source_dir }}/fdk-aac; {{ item }} creates={{ ffmpeg_build }}/lib/libfdk-aac.a'

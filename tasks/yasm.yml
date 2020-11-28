@@ -1,7 +1,7 @@
 - name: clone latest yasm
-  git: repo=git://github.com/yasm/yasm.git accept_hostkey=true dest={{ ffmpeg_source_dir }}/yasm
+  git: repo=git://github.com/yasm/yasm.git accept_hostkey=true dest={{ ffmpeg_source_dir }}/yasm depth=1
 
-- name: compile yasm 
+- name: compile yasm
   shell: 'cd {{ ffmpeg_source_dir }}/yasm; {{ item }} creates={{ ffmpeg_bin_dir }}/yasm'
   with_items:
     - ./autogen.sh

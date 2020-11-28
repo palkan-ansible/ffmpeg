@@ -1,8 +1,8 @@
 - name: clone latest ffmpeg
-  git: repo=git://source.ffmpeg.org/ffmpeg.git accept_hostkey=true dest={{ ffmpeg_source_dir }}/ffmpeg
+  git: repo=git://source.ffmpeg.org/ffmpeg.git accept_hostkey=true dest={{ ffmpeg_source_dir }}/ffmpeg depth=1
 
 - name: compile ffmpeg
-  environment: ffmpeg_env
+  environment: "{{ ffmpeg_env }}"
   shell: 'cd {{ ffmpeg_source_dir }}/ffmpeg; {{ item }} creates={{ ffmpeg_bin_dir }}/ffmpeg'
   with_items:
     - ./configure --prefix={{ ffmpeg_build }} {{ ffmpeg_flags }}

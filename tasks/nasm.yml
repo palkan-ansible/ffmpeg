@@ -1,0 +1,12 @@
+- name: NASM | Download & Extract
+  unarchive:
+    src: "{{ nasm_url }}"
+    dest: "{{ ffmpeg_source_dir }}"
+    remote_src: yes
+
+- name: NASM | Compile
+  shell: 'cd {{ ffmpeg_source_dir }}/nasm-{{ nasm_version }}; {{ item }} creates={{ ffmpeg_bin_dir }}/nasm'
+  with_items:
+    - ./configure --prefix={{ ffmpeg_build }} --bindir={{ ffmpeg_bin_dir }}
+    - make
+    - make install

@@ -1,8 +1,36 @@
-- include: prepare.yml tags=ffmpeg_prepare
-- include: yasm.yml tags=yasm
-- include: aac.yml tags=aac
-- include: x264.yml tags=x264
-- include: vpx.yml tags=vpx
-- include: speex.yml tags=speex
-- include: opus.yml tags=opus
-- include: ffmpeg.yml tags=ffmpeg
+- block:
+    - name: "Install system deps"
+      include_tasks: prepare.yml
+  tags: prepare
+- block:
+    - name: "Install NASM"
+      include_tasks: nasm.yml
+  tags: nasm
+- block:
+    - name: Install x264
+      include_tasks: x264.yml
+  tags: x264
+- block:
+    - name: Install YASM
+      include_tasks: yasm.yml
+  tags: yasm
+- block:
+    - name: Install VPX
+      include_tasks: vpx.yml
+  tags: vpx
+- block:
+    - name: Install Speex
+      include_tasks: speex.yml
+  tags: speex
+- block:
+    - name: Install Opus
+      include_tasks: opus.yml
+  tags: opus
+- block:
+    - name: Install AAC
+      include_tasks: aac.yml
+  tags: aac
+- block:
+    - name: "Finally, install FFMPEG"
+      include_tasks: ffmpeg.yml
+  tags: ffmpeg

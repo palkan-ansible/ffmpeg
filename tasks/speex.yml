@@ -1,5 +1,5 @@
 - name: clone latest speex
-  git: repo=https://git.xiph.org/speex.git accept_hostkey=true dest={{ ffmpeg_source_dir }}/speex
+  git: repo=https://github.com/xiph/speex.git accept_hostkey=true dest={{ ffmpeg_source_dir }}/speex depth=1
 
 - name: compile libspeex
   shell: 'cd {{ ffmpeg_source_dir }}/speex; {{ item }} creates={{ ffmpeg_build }}/lib/libspeex.a'
